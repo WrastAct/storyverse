@@ -1,0 +1,28 @@
+@import url(https://fonts.googleapis.com/css?family=Lato:regular&display=swap);
+*, *::after, *::before{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
+}
+html, body{
+    height: 100%;
+    line-height: 1;
+}
+h1, h2, h3, h4, h5, h6{
+    font-weight: inherit;
+    font-size: inherit;
+}
+a{
+    text-decoration: none;
+}
+ul, ol, li{
+    list-style: none;
+}
+body{
+    font-family: Lato;
+    font-weight: 400;
+    font-size: 18px;
+    color: #ffff;
+    background-color: #4A5A55;
+}
