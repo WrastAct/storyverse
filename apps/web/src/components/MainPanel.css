@@ -1,28 +1,82 @@
-@import url(https://fonts.googleapis.com/css?family=Lato:regular&display=swap);
-*, *::after, *::before{
-    margin: 0;
-    padding: 0;
-    border: 0;
-    box-sizing: border-box;
+.main-panel {
+    display: flex;
+    padding: 15px 20px;
+    background-color: #466C61;
+    align-items: center;
+    max-height: 80px;
+    width: 100%;
 }
-html, body{
-    height: 100%;
-    line-height: 1;
+.left-panel {
+    flex: 0 1 18%;
+    display: flex;
+    justify-content: space-between;
 }
-h1, h2, h3, h4, h5, h6{
-    font-weight: inherit;
-    font-size: inherit;
+.center-panel {
+    flex: 1 1 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
-a{
-    text-decoration: none;
+.dialogue-title {
+    padding: 0 0 0 15px;
+    font-size: 20px;
+    position: relative;
 }
-ul, ol, li{
-    list-style: none;
+.dialogue-title::after {
+    content: "";
+    position: absolute;
+    background: url('../assets/icons/arrow.svg') 0 0 no-repeat;
+    top: 5px;
+    right: -20px;
+    width: 12px;
+    height: 12px;
+    transition: all 0.3s ease 0s;
 }
-body{
-    font-family: Lato;
-    font-weight: 400;
-    font-size: 18px;
-    color: #ffff;
-    background-color: #4A5A55;
+.dialogue-title:hover::after{
+    top: 10px;
+}
+.right-panel {
+    flex: 0 1 18%;
+    text-align: end;
+}
+.right-panel *:first-child {
+    margin-right: 20px;
+}
+span {
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+}
+.add-icon {
+    background-image: url('../assets/icons/add.svg');
+    width: 28px;
+    height: 28px;
+}
+.search-icon {
+    background-image: url('../assets/icons/search.svg');
+    width: 25px;
+    height: 27px;
+}
+.play-icon {
+    background-image: url('../assets/icons/play.svg');
+    width: 30px;
+    height: 30px;
+}
+.share-icon {
+    background-image: url('../assets/icons/share.svg');
+    width: 33px;
+    height: 31px;
+    display: inline-block;
+}
+.save-icon {
+    background-image: url('../assets/icons/save.svg');
+    width: 30px;
+    height: 30px;
+    display: inline-block;
+}
+.add-icon:hover, 
+.search-icon:hover,
+.play-icon:hover,
+.share-icon:hover,
+.save-icon:hover {
+    filter: brightness(0) saturate(100%) invert(28%) sepia(11%) saturate(1107%) hue-rotate(111deg) brightness(99%) contrast(89%);
 }
