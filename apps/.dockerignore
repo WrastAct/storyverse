@@ -1,0 +1,5 @@
+*.gitignore
+.turbo
+*/test
+*/bin
+*/node_modules
