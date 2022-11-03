@@ -4,13 +4,10 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
-const PORT = 8080;
-const HOST = '0.0.0.0';
-
-const indexRoute = require('./routes/index')
-const usersRoute = require('./routes/users')
-const dialoguesRoute = require('./routes/dialogues')
-
+const indexRoute = require('./routes/index');
+const usersRoute = require('./routes/users');
+const dialoguesRoute = require('./routes/dialogues');
+const { version } = require('os');
 
 var app = express();
 
@@ -38,6 +35,16 @@ app.use(function(err, req, res) {
   res.locals.error = req.app.get('env') === 'development' ? err : {};
 
   res.status(err.status || 500);
+});
+
+
+const db = require("./models");
+db.sequelize.sync()
+  .then(() => {
+    console.log("Synced db.");
+  })
+  .catch((err) => {
+    console.log("Failed to sync db: " + err.message);
 });
 
 module.exports = app;
