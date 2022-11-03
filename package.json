@@ -24,6 +24,8 @@
   },
   "dependencies": {
     "@types/jest": "^29.2.0",
+    "http-errors": "^2.0.0",
+    "jade": "^1.11.0",
     "jest": "^29.2.1"
   },
   "packageManager": "npm@8.11.0"

@@ -2,7 +2,11 @@ var express = require('express');
 var router = express.Router();
 
 router.get('/', function(req, res) {
-  res.status(200).json({'message': 'Add some users here...'});
+
+});
+
+router.post('/', function(req, res) {
+    
 });
 
 module.exports = router;
