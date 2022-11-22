@@ -1,16 +1,25 @@
 import './App.css'
-import MainPanel from './components/MainPanel'
-import WorkingArea from './components/WorkingArea'
+import DialogEditor from './components/DialogEditor'
+import Authentication from './components/AuthPage'
+import {
+  BrowserRouter,
+  Routes,
+  Route
+} from "react-router-dom";
 
 function App() {
 
   return (
-    <div className="App"> 
-       <MainPanel />
-       <div style={{ height: 800 }}>
-        <WorkingArea />
-       </div>
-    </div>
+    <BrowserRouter>
+      <div className="App"> 
+        {/* <DialogEditor /> */}
+        {/* <Authentication /> */}
+      </div>
+      <Routes>
+        <Route path="/login" element={<Authentication />} />
+        <Route path="/" element={<DialogEditor />} />
+      </Routes>
+    </BrowserRouter>
   )
 }
 
