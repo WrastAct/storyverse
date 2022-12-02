@@ -1,3 +1,4 @@
+import './WorkingArea.css'
 import React, { useCallback} from 'react';
 import ReactFlow, { useNodesState, useEdgesState, addEdge, MiniMap, Controls, MarkerType} from 'reactflow';
 import 'reactflow/dist/style.css';
@@ -40,17 +41,18 @@ const WorkingArea = () => {
   const onConnect = useCallback((params) => setEdges((els) => addEdge(params, els)), []);
 
   return (
-    <ReactFlow
-      nodes={nodes}
-      edges={edges}
-      onNodesChange={onNodesChange}
-      onEdgesChange={onEdgesChange}
-      onConnect={onConnect}
-    >
-      <MiniMap />
-      <Controls />
-
-    </ReactFlow>
+    <div className="working-area">
+      <ReactFlow
+        nodes={nodes}
+        edges={edges}
+        onNodesChange={onNodesChange}
+        onEdgesChange={onEdgesChange}
+        onConnect={onConnect}
+      >
+        <MiniMap />
+        <Controls />
+      </ReactFlow>
+    </div>
   );
 };
 
