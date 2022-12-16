@@ -57,7 +57,7 @@ const fitViewOptions = {
   padding: 3,
 };
 
-const WorkingArea = ({setOnAddNode, setOnSave, setOnLoad}) => {
+const WorkingArea = ({setOnAddNode, setOnSave, setOnLoad, dialogTitle, setDialogTitle}) => {
   const reactFlowWrapper = useRef(null);
   const connectingNodeId = useRef(null);
   const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
@@ -84,13 +84,13 @@ const WorkingArea = ({setOnAddNode, setOnSave, setOnLoad}) => {
     setOnSave(() => () => {
       const dialog = {
         FormatRevision: 1.0,
-        DialogTitle: 'DialogTitle',
+        DialogTitle: dialogTitle,
         Nodes: nodes,
         Edges: edges
       }
       download_file(JSON.stringify(dialog), dialog.DialogTitle + '.stvs', 'application/json');
     });
-  }, [nodes, edges]);
+  }, [nodes, edges, dialogTitle]);
 
   useEffect(() => {
     setOnLoad(() => () => {
@@ -106,11 +106,12 @@ const WorkingArea = ({setOnAddNode, setOnSave, setOnLoad}) => {
           const dialog = JSON.parse(content);
           setNodes(dialog.Nodes);
           setEdges(dialog.Edges);
+          setDialogTitle(dialog.DialogTitle);
         }
       }
       input.click();
     });
-  }, [setNodes, setEdges]);
+  }, [setNodes, setEdges, setDialogTitle]);
 
   const onConnectStart = useCallback((_, { nodeId }) => {
     connectingNodeId.current = nodeId;

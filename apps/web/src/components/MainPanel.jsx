@@ -1,6 +1,11 @@
+import { useCallback } from 'react';
 import './MainPanel.css';
 
-export default function MainPanel({onAddNode, onSave, onLoad}) {
+export default function MainPanel({onAddNode, onSave, onLoad, dialogTitle, setDialogTitle}) {
+     const onChange = useCallback((evt) => {
+          setDialogTitle(evt.target.value);
+     }, []);
+
     return (
         <div className="main-panel">
            <div className='left-panel'>
@@ -12,7 +17,9 @@ export default function MainPanel({onAddNode, onSave, onLoad}) {
            <div className='center-panel'>
                 {/* <img src={play} alt="Play Button" /> */}
                 <span className='play-icon'></span>
-                <div className='dialogue-title'>Dialog Title</div>
+                <div className='dialogue-title'>
+                <input type="text" name="input" value={dialogTitle} onChange={onChange}></input>
+                </div>
            </div>
            <div className='right-panel'>
                 {/* <img src={share} alt="Share Button" /> */}
