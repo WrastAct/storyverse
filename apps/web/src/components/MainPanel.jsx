@@ -1,6 +1,6 @@
-import './MainPanel.css'
+import './MainPanel.css';
 
-export default function MainPanel({onAddNode}) {
+export default function MainPanel({onAddNode, onSave, onLoad}) {
     return (
         <div className="main-panel">
            <div className='left-panel'>
@@ -18,7 +18,8 @@ export default function MainPanel({onAddNode}) {
                 {/* <img src={share} alt="Share Button" /> */}
                 <span className='share-icon'></span>
                 {/* <img src={save} alt="Save Button" /> */}
-                <span className='save-icon'></span>
+                <span className='save-icon' onClick={() => onSave()}></span>
+                <span className='load-icon' onClick={() => onLoad()}></span>
            </div>
         </div>
     )

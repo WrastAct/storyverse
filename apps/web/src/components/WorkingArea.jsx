@@ -5,6 +5,7 @@ import ReactFlow, {
   useEdgesState,
   addEdge,
   useReactFlow,
+  useViewport,
   ReactFlowProvider,
   MiniMap,
   Controls,
@@ -56,20 +57,60 @@ const fitViewOptions = {
   padding: 3,
 };
 
-const WorkingArea = ({setOnAddNode}) => {
+const WorkingArea = ({setOnAddNode, setOnSave, setOnLoad}) => {
   const reactFlowWrapper = useRef(null);
   const connectingNodeId = useRef(null);
   const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
   const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
   const [clicked, setClicked] = useState();
   const { project } = useReactFlow();
+  // const { x, y } = useViewport();
   const onConnect = useCallback((params) => setEdges((eds) => addEdge(params, eds)), []);
 
   useEffect(() => {
     setOnAddNode(() => () => {
-      
     });
   }, []);
+
+  const download_file = (content, fileName, contentType) =>{
+    var a = document.createElement("a");
+    var file = new Blob([content], {type: contentType});
+    a.href = URL.createObjectURL(file);
+    a.download = fileName;
+    a.click();
+  }
+
+  useEffect(() => {
+    setOnSave(() => () => {
+      const dialog = {
+        FormatRevision: 1.0,
+        DialogTitle: 'DialogTitle',
+        Nodes: nodes,
+        Edges: edges
+      }
+      download_file(JSON.stringify(dialog), dialog.DialogTitle + '.stvs', 'application/json');
+    });
+  }, [nodes, edges]);
+
+  useEffect(() => {
+    setOnLoad(() => () => {
+      var input = document.createElement('input');
+      input.type = 'file';
+      input.onchange = e => { 
+        var file = e.target.files[0]; 
+        var reader = new FileReader();
+        reader.readAsText(file,'UTF-8');
+
+        reader.onload = readerEvent => {
+          var content = readerEvent.target.result; 
+          const dialog = JSON.parse(content);
+          setNodes(dialog.Nodes);
+          setEdges(dialog.Edges);
+        }
+      }
+      input.click();
+    });
+  }, [setNodes, setEdges]);
 
   const onConnectStart = useCallback((_, { nodeId }) => {
     connectingNodeId.current = nodeId;

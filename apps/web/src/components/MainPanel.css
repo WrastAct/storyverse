@@ -73,10 +73,20 @@ span {
     height: 30px;
     display: inline-block;
 }
+.load-icon {
+    background-image: url('../assets/icons/load.svg');
+
+    margin-left: 20px;
+    opacity: 0.5;
+    width: 33px;
+    height: 33px;
+    display: inline-block;
+}
 .add-icon:hover, 
 .search-icon:hover,
 .play-icon:hover,
 .share-icon:hover,
-.save-icon:hover {
+.save-icon:hover,
+.load-icon:hover {
     filter: brightness(0) saturate(100%) invert(28%) sepia(11%) saturate(1107%) hue-rotate(111deg) brightness(99%) contrast(89%);
 }
