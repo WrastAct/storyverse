@@ -1,4 +1,5 @@
 import { useCallback } from 'react';
+import { TextInput } from '@mantine/core';
 import './MainPanel.css';
 
 export default function MainPanel({onAddNode, onSave, onLoad, dialogTitle, setDialogTitle}) {
@@ -18,7 +19,8 @@ export default function MainPanel({onAddNode, onSave, onLoad, dialogTitle, setDi
                 {/* <img src={play} alt="Play Button" /> */}
                 <span className='play-icon'></span>
                 <div className='dialogue-title'>
-                <input type="text" name="input" value={dialogTitle} onChange={onChange}></input>
+                {/* <input className='dialogue-title-editor' type="text" name="input" value={dialogTitle} onChange={onChange}></input> */}
+                <TextInput className='dialogue-title-editor' value={dialogTitle} onChange={onChange}></TextInput>
                 </div>
            </div>
            <div className='right-panel'>

@@ -46,6 +46,25 @@ span {
     cursor: pointer;
     transition: all 0.3s ease 0s;
 }
+
+.dialogue-title-editor
+{
+    background-color: #466C61;
+    font-size: 24px;
+    opacity: 0.4;
+    color: black;
+}
+
+/* .dialogue-title-editor:active
+{
+    border: 1px solid black;
+}
+
+.dialogue-title-editor:hover
+{
+    opacity: 0.5;
+} */
+
 .add-icon {
     background-image: url('../assets/icons/add.svg');
     width: 28px;
