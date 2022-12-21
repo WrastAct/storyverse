@@ -129,9 +129,9 @@ const Authentication = () => {
                 ref={ref}
                 styles={{
                   root: {
-                    backgroundColor: '#466C61',
+                    backgroundColor: '#ECB365',
                     '&:hover': {
-                      backgroundColor: '#4A5A55',
+                      backgroundColor: '#ECB400',
                     }
                   }
                 }}

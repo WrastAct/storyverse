@@ -1,58 +1,65 @@
 .main-panel {
-    display: flex;
-    padding: 15px 20px;
-    background-color: #466C61;
-    align-items: center;
-    max-height: 80px;
-    width: 100%;
-}
-.left-panel {
-    flex: 0 1 18%;
-    display: flex;
-    justify-content: space-between;
-}
-.center-panel {
-    flex: 1 1 auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.dialogue-title {
-    padding: 0 0 0 15px;
-    font-size: 20px;
-    position: relative;
-}
-.dialogue-title::after {
-    content: "";
-    position: absolute;
-    background: url('../assets/icons/arrow.svg') 0 0 no-repeat;
-    top: 5px;
-    right: -20px;
-    width: 12px;
-    height: 12px;
-    transition: all 0.3s ease 0s;
-}
-.dialogue-title:hover::after{
-    top: 10px;
-}
-.right-panel {
-    flex: 0 1 18%;
-    text-align: end;
-}
-.right-panel *:first-child {
-    margin-right: 20px;
-}
-span {
-    cursor: pointer;
-    transition: all 0.3s ease 0s;
+  display: flex;
+  padding: 15px 20px;
+  background-color: #141519;
+  align-items: center;
+  max-height: 80px;
+  width: 100%;
 }
 
-.dialogue-title-editor
-{
-    background-color: #466C61;
-    font-size: 24px;
-    opacity: 0.4;
-    color: black;
+.left-panel {
+  flex: 0 1 18%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.center-panel {
+  flex: 1 1 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dialogue-title {
+  padding: 0 0 0 15px;
+  font-size: 20px;
+  position: relative;
+}
+
+.dialogue-title::after {
+  content: "";
+  position: absolute;
+  background: url('../assets/icons/arrow.svg') 0 0 no-repeat;
+  top: 5px;
+  right: -20px;
+  width: 12px;
+  height: 12px;
+  transition: all 0.3s ease 0s;
+}
+
+.dialogue-title:hover::after {
+  top: 10px;
+}
+
+.right-panel {
+  flex: 0 1 18%;
+  text-align: end;
+}
+
+.right-panel *:first-child {
+  margin-right: 20px;
+}
+
+span {
+  cursor: pointer;
+  transition: all 0.3s ease 0s;
+}
+
+.dialogue-title-editor {
+  background-color: #466C61;
+  font-size: 24px;
+  opacity: 0.4;
+  color: black;
 }
 
 /* .dialogue-title-editor:active
@@ -66,46 +73,59 @@ span {
 } */
 
 .add-icon {
-    background-image: url('../assets/icons/add.svg');
-    width: 28px;
-    height: 28px;
+  background-image: url('../assets/icons/add.svg');
+  width: 28px;
+  height: 28px;
 }
-.search-icon {
-    background-image: url('../assets/icons/search.svg');
-    width: 25px;
-    height: 27px;
-}
-.play-icon {
-    background-image: url('../assets/icons/play.svg');
-    width: 30px;
-    height: 30px;
-}
-.share-icon {
-    background-image: url('../assets/icons/share.svg');
-    width: 33px;
-    height: 31px;
-    display: inline-block;
-}
-.save-icon {
-    background-image: url('../assets/icons/save.svg');
-    width: 30px;
-    height: 30px;
-    display: inline-block;
-}
-.load-icon {
-    background-image: url('../assets/icons/load.svg');
 
-    margin-left: 20px;
-    opacity: 0.5;
-    width: 33px;
-    height: 33px;
-    display: inline-block;
+.search-icon {
+  background-image: url('../assets/icons/search.svg');
+  width: 25px;
+  height: 27px;
 }
-.add-icon:hover, 
+
+.play-icon {
+  background-image: url('../assets/icons/play.svg');
+  width: 30px;
+  height: 30px;
+}
+
+.share-icon {
+  background-image: url('../assets/icons/share.svg');
+  width: 33px;
+  height: 31px;
+  display: inline-block;
+}
+
+.save-icon {
+  background-image: url('../assets/icons/save.svg');
+  width: 30px;
+  height: 30px;
+  display: inline-block;
+}
+
+.load-icon {
+  background-image: url('../assets/icons/load.svg');
+  margin-left: 20px;
+  width: 30px;
+  height: 30px;
+  display: inline-block;
+}
+
+.add-icon,
+.search-icon,
+.play-icon,
+.share-icon,
+.load-icon,
+.save-icon {
+  filter: invert(62%) sepia(33%) saturate(648%) hue-rotate(353deg) brightness(116%) contrast(85%);
+}
+
+.add-icon:hover,
 .search-icon:hover,
 .play-icon:hover,
 .share-icon:hover,
 .save-icon:hover,
 .load-icon:hover {
-    filter: brightness(0) saturate(100%) invert(28%) sepia(11%) saturate(1107%) hue-rotate(111deg) brightness(99%) contrast(89%);
+  filter: invert(80%) sepia(33%) saturate(1000%) hue-rotate(353deg) brightness(100%) contrast(100%);
 }
